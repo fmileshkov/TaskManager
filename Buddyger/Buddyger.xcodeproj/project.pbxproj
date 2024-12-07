@@ -27,6 +27,15 @@
 		0BF7A3602CFE78800077FA9D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A35F2CFE78800077FA9D /* APIError.swift */; };
 		0BF7A3622CFE7F170077FA9D /* CoreDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A3612CFE7F170077FA9D /* CoreDataManger.swift */; };
 		0BF7A3642CFFD2150077FA9D /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A3632CFFD2150077FA9D /* QRScannerViewController.swift */; };
+		0BF7A3662D0260B70077FA9D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A3652D0260B70077FA9D /* Coordinator.swift */; };
+		0BF7A3682D0261090077FA9D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A3672D0261090077FA9D /* AppCoordinator.swift */; };
+		0BF7A36A2D0263160077FA9D /* TasksListViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A3692D0263160077FA9D /* TasksListViewCoordinator.swift */; };
+		0BF7A36C2D0263950077FA9D /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A36B2D0263950077FA9D /* UIViewController+Storyboard.swift */; };
+		0BF7A36E2D0267290077FA9D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A36D2D0267290077FA9D /* TabBarController.swift */; };
+		0BF7A3702D0268EC0077FA9D /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A36F2D0268EC0077FA9D /* TabBarCoordinator.swift */; };
+		0BF7A3752D0272780077FA9D /* QRScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A3742D0272780077FA9D /* QRScannerViewModel.swift */; };
+		0BF7A3772D0274130077FA9D /* QRScannerViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A3762D0274130077FA9D /* QRScannerViewCoordinator.swift */; };
+		0BF7A3792D050B510077FA9D /* TabBarPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A3782D050B510077FA9D /* TabBarPages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +80,15 @@
 		0BF7A35F2CFE78800077FA9D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		0BF7A3612CFE7F170077FA9D /* CoreDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManger.swift; sourceTree = "<group>"; };
 		0BF7A3632CFFD2150077FA9D /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		0BF7A3652D0260B70077FA9D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		0BF7A3672D0261090077FA9D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		0BF7A3692D0263160077FA9D /* TasksListViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewCoordinator.swift; sourceTree = "<group>"; };
+		0BF7A36B2D0263950077FA9D /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
+		0BF7A36D2D0267290077FA9D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		0BF7A36F2D0268EC0077FA9D /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		0BF7A3742D0272780077FA9D /* QRScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewModel.swift; sourceTree = "<group>"; };
+		0BF7A3762D0274130077FA9D /* QRScannerViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewCoordinator.swift; sourceTree = "<group>"; };
+		0BF7A3782D050B510077FA9D /* TabBarPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,13 +142,14 @@
 				0BE62CF12CFA7F7700A863DA /* AppDelegate.swift */,
 				0BE62CF32CFA7F7700A863DA /* SceneDelegate.swift */,
 				0BF7A3572CFE77F90077FA9D /* Utils */,
-				0BE62CF52CFA7F7700A863DA /* TasksListViewController.swift */,
-				0BF7A3532CFD3DE30077FA9D /* TasksListViewModel.swift */,
-				0BF7A34D2CFBD85E0077FA9D /* TaskTableViewCell.swift */,
-				0BF7A34F2CFBDED70077FA9D /* AuthManager.swift */,
+				0BF7A3652D0260B70077FA9D /* Coordinator.swift */,
+				0BF7A3672D0261090077FA9D /* AppCoordinator.swift */,
 				0BF7A3512CFCAA640077FA9D /* NetworkManager.swift */,
-				0BF7A3632CFFD2150077FA9D /* QRScannerViewController.swift */,
 				0BF7A3612CFE7F170077FA9D /* CoreDataManger.swift */,
+				0BF7A34F2CFBDED70077FA9D /* AuthManager.swift */,
+				0BF7A3712D026C670077FA9D /* TasksView */,
+				0BF7A3722D026C8A0077FA9D /* TabBar */,
+				0BF7A3732D026C9B0077FA9D /* QRScannerView */,
 				0BF7A3592CFE78130077FA9D /* Model */,
 				0BE62CF72CFA7F7700A863DA /* Main.storyboard */,
 				0BE62CFD2CFA7F7A00A863DA /* Assets.xcassets */,
@@ -170,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				0BF7A3552CFE11BC0077FA9D /* UIColor+Hex.swift */,
+				0BF7A36B2D0263950077FA9D /* UIViewController+Storyboard.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -182,6 +202,37 @@
 				0BF7A35F2CFE78800077FA9D /* APIError.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0BF7A3712D026C670077FA9D /* TasksView */ = {
+			isa = PBXGroup;
+			children = (
+				0BF7A3692D0263160077FA9D /* TasksListViewCoordinator.swift */,
+				0BE62CF52CFA7F7700A863DA /* TasksListViewController.swift */,
+				0BF7A3532CFD3DE30077FA9D /* TasksListViewModel.swift */,
+				0BF7A34D2CFBD85E0077FA9D /* TaskTableViewCell.swift */,
+			);
+			path = TasksView;
+			sourceTree = "<group>";
+		};
+		0BF7A3722D026C8A0077FA9D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				0BF7A36F2D0268EC0077FA9D /* TabBarCoordinator.swift */,
+				0BF7A36D2D0267290077FA9D /* TabBarController.swift */,
+				0BF7A3782D050B510077FA9D /* TabBarPages.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		0BF7A3732D026C9B0077FA9D /* QRScannerView */ = {
+			isa = PBXGroup;
+			children = (
+				0BF7A3632CFFD2150077FA9D /* QRScannerViewController.swift */,
+				0BF7A3762D0274130077FA9D /* QRScannerViewCoordinator.swift */,
+				0BF7A3742D0272780077FA9D /* QRScannerViewModel.swift */,
+			);
+			path = QRScannerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,18 +368,27 @@
 			files = (
 				0BE62CF62CFA7F7700A863DA /* TasksListViewController.swift in Sources */,
 				0BF7A3502CFBDED70077FA9D /* AuthManager.swift in Sources */,
+				0BF7A3662D0260B70077FA9D /* Coordinator.swift in Sources */,
 				0BF7A35C2CFE78320077FA9D /* TaskModel.swift in Sources */,
+				0BF7A3682D0261090077FA9D /* AppCoordinator.swift in Sources */,
+				0BF7A3752D0272780077FA9D /* QRScannerViewModel.swift in Sources */,
+				0BF7A36C2D0263950077FA9D /* UIViewController+Storyboard.swift in Sources */,
 				0BF7A3542CFD3DE30077FA9D /* TasksListViewModel.swift in Sources */,
 				0BE62CF22CFA7F7700A863DA /* AppDelegate.swift in Sources */,
 				0BF7A3602CFE78800077FA9D /* APIError.swift in Sources */,
 				0BF7A3642CFFD2150077FA9D /* QRScannerViewController.swift in Sources */,
+				0BF7A36E2D0267290077FA9D /* TabBarController.swift in Sources */,
 				0BF7A34E2CFBD85E0077FA9D /* TaskTableViewCell.swift in Sources */,
 				0BF7A3522CFCAA640077FA9D /* NetworkManager.swift in Sources */,
 				0BE62CF42CFA7F7700A863DA /* SceneDelegate.swift in Sources */,
 				0BE62CFC2CFA7F7700A863DA /* Buddyger.xcdatamodeld in Sources */,
 				0BF7A35E2CFE78660077FA9D /* LoginResponse.swift in Sources */,
+				0BF7A3792D050B510077FA9D /* TabBarPages.swift in Sources */,
+				0BF7A36A2D0263160077FA9D /* TasksListViewCoordinator.swift in Sources */,
 				0BF7A3622CFE7F170077FA9D /* CoreDataManger.swift in Sources */,
+				0BF7A3702D0268EC0077FA9D /* TabBarCoordinator.swift in Sources */,
 				0BF7A3562CFE11BC0077FA9D /* UIColor+Hex.swift in Sources */,
+				0BF7A3772D0274130077FA9D /* QRScannerViewCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

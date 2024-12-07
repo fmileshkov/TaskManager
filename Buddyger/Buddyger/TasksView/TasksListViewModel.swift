@@ -17,7 +17,12 @@ protocol TasksListViewModelProtocol {
 class TasksListViewModel {
     
     private var tasks: [TaskModel] = []
+    private var coordinator: TasksListViewCoordinator
     @Published var presentedTasks: [TaskModel] = []
+    
+    init(coordinator: TasksListViewCoordinator) {
+        self.coordinator = coordinator
+    }
     
     func fetchTasks() {
         Task {
@@ -25,9 +30,7 @@ class TasksListViewModel {
                 let request = try await AuthManager.shared.login()
                 let tasks = try await NetworkManager.shared.fetchTasks(token: request
                     .token, refreshToken: request.refreshToken)
-                
-                
-                
+
                 DispatchQueue.main.async {
                     self.saveTasksToCoreData(tasks: tasks)
                     self.tasks = tasks
@@ -50,7 +53,7 @@ class TasksListViewModel {
         } else {
             presentedTasks = tasks.filter { task in
                 task.title?.localizedCaseInsensitiveContains(query) == true ||
-                task.descriptionTask?.localizedCaseInsensitiveContains(query) == true
+                task.description?.localizedCaseInsensitiveContains(query) == true
             }
         }
     }

@@ -30,7 +30,7 @@ class CoreDataManager {
             let taskEntity = TaskEntity(context: context)
             taskEntity.task = task.task
             taskEntity.title = task.title
-            taskEntity.descriptionTask = task.descriptionTask
+            taskEntity.descriptionTask = task.description
             taskEntity.colorCode = task.colorCode
         }
 
@@ -53,7 +53,7 @@ class CoreDataManager {
                 TaskModel(
                     task: taskEntity.task,
                     title: taskEntity.title,
-                    descriptionTask: taskEntity.descriptionTask,
+                    description: taskEntity.descriptionTask,
                     colorCode: taskEntity.colorCode
                 )
             }

@@ -11,9 +11,10 @@ import Combine
 
 class QRScannerViewController: UIViewController {
     
-    var captureSession = AVCaptureSession()
-    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    var qrCodeFrame: UIView = UIView()
+    var viewModel: QRScannerViewModel?
+    private var captureSession = AVCaptureSession()
+    private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
+    private var qrCodeFrame: UIView = UIView()
     private var isScanning = true
     
     override func viewDidLoad() {
@@ -69,7 +70,9 @@ class QRScannerViewController: UIViewController {
             message: "No camera device found. Please check your device and try again.",
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            self.viewModel?.searchWithQRSquery(query: "Lagerarbeiten")
+        })
         present(alert, animated: true)
     }
 }
@@ -99,8 +102,7 @@ extension QRScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
                 qrCodeFrame.frame = barCodeObject.bounds
             }
             
-            print("QR Code Detected: \(qrCodeValue)")
-            TaskManager.shared.searchTextPublisher = qrCodeValue
+            viewModel?.searchWithQRSquery(query: qrCodeValue)
 
             let alert = UIAlertController(
                 title: "QR Code Detected",
@@ -119,11 +121,4 @@ extension QRScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
         qrCodeFrame.frame = .zero
         captureSession.startRunning()
     }
-}
-
-class TaskManager {
-    static let shared = TaskManager()
-    private init() {}
-    
-    @Published var searchTextPublisher: String = ""
 }

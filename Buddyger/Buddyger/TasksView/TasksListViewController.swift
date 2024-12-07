@@ -13,13 +13,13 @@ class TasksListViewController: UIViewController {
     @IBOutlet weak var tasksTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    private var viewModel: TasksListViewModel?
+    var viewModel: TasksListViewModel?
     private var refreshControl: UIRefreshControl?
     private var cancellables: [AnyCancellable] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = TasksListViewModel()
+        navigationController?.setNavigationBarHidden(true, animated: false)
         setupRefreshControl()
         setUpSearchBar()
         setUpTableView()
@@ -98,7 +98,7 @@ extension TasksListViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.configure(task: task.task ?? "no task",
                        title: task.title ?? "no title",
-                       description: task.descriptionTask ?? "no description",
+                       description: task.description ?? "no description",
                        colorCode: UIColor(hex: task.colorCode ?? ""))
         
         return cell

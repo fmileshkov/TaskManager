@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gNg-si-pLS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -8,19 +8,33 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tasks-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="hTd-wc-JTg">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K6p-Ex-sKt" customClass="TabBarController" customModule="Buddyger" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vv9-Q5-zzq">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ea4-cZ-nEc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-569" y="-687"/>
+        </scene>
+        <!--TasksListViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TasksListViewController" customModule="Buddyger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TasksListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="TasksListViewController" customClass="TasksListViewController" customModule="Buddyger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0i-c9-bri" userLabel="ContentView">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s65-3s-VF6" userLabel="TaskTableView">
-                                        <rect key="frame" x="0.0" y="56" width="393" height="654"/>
+                                        <rect key="frame" x="0.0" y="56" width="393" height="703"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                     <searchBar contentMode="redraw" placeholder="Search for task" translatesAutoresizingMaskIntoConstraints="NO" id="sPF-un-dbu">
@@ -63,28 +77,10 @@
             </objects>
             <point key="canvasLocation" x="421" y="-687"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="bcG-m4-DcX">
-            <objects>
-                <tabBarController id="gNg-si-pLS" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4jn-2x-M49">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Lpd-o6-x75"/>
-                        <segue destination="OTK-OJ-Lqr" kind="relationship" relationship="viewControllers" id="1Yb-di-cRW"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X5l-lX-oee" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-593" y="-283"/>
-        </scene>
         <!--QRScanner-->
         <scene sceneID="tMS-KT-dZ0">
             <objects>
-                <viewController id="OTK-OJ-Lqr" customClass="QRScannerViewController" customModule="Buddyger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRScannerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OTK-OJ-Lqr" customClass="QRScannerViewController" customModule="Buddyger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zt5-b0-Slw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4zi-gI-nlL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="421" y="-26"/>
+            <point key="canvasLocation" x="1201" y="-687"/>
         </scene>
     </scenes>
     <resources>
