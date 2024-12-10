@@ -7,23 +7,26 @@
 
 import Foundation
 
-class QRScannerViewModel {
+protocol QRScannerViewModelProtocol {
     
-    private var coordinator: QRScannerViewCoordinator
+    func searchWithQRSquery(query: String)
+    func handleNoCamera()
+}
+
+class QRScannerViewModel: QRScannerViewModelProtocol {
     
-    init(coordinator: QRScannerViewCoordinator) {
-        self.coordinator = coordinator
+    private weak var coordinatorDelegate: QRScannerCoordinatorDelegate?
+    
+    init(coordinatorDelegate: QRScannerCoordinatorDelegate) {
+        self.coordinatorDelegate = coordinatorDelegate
     }
     
     func searchWithQRSquery(query: String) {
-        coordinator.openTaskManagerWithQRquery(query: query)
+        coordinatorDelegate?.openTaskManagerWithQRQuery(query)
     }
     
-}
-
-class TaskManager {
-    static let shared = TaskManager()
-    private init() {}
+    func handleNoCamera() {
+        coordinatorDelegate?.showNoCameraAlert()
+    }
     
-    @Published var searchTextPublisher: String = ""
 }

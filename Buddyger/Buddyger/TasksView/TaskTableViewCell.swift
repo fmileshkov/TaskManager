@@ -68,10 +68,10 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     // MARK: - Configure Cell
-    func configure(task: String, title: String, description: String, colorCode: UIColor) {
-        titleLabel.text = title
-        descriptionLabel.text = description
-        colorView.backgroundColor = colorCode
+    func configure(with model: TaskCellModel) {
+        titleLabel.text = model.title
+        descriptionLabel.text = model.description
+        colorView.backgroundColor = model.colorCode
     }
     
 }

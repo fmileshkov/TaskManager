@@ -11,36 +11,43 @@ import Combine
 protocol TasksListViewModelProtocol {
     func fetchTasks()
     func searchTasks(query: String)
-    var presentedTasks: [TaskModel] { get }
+    var presentedTasks: CurrentValueSubject<[TaskModel], Never> { get }
 }
 
-class TasksListViewModel {
+class TasksListViewModel: TasksListViewModelProtocol {
     
     private var tasks: [TaskModel] = []
-    private var coordinator: TasksListViewCoordinator
-    @Published var presentedTasks: [TaskModel] = []
+    private weak var coordinatorDelegate: TasksListViewCoordinatorDelegate?
+    private var persistenceManager: CoreDataManager
+    private var authRepo: AuthRepository
+    var presentedTasks = CurrentValueSubject<[TaskModel], Never>([])
     
-    init(coordinator: TasksListViewCoordinator) {
-        self.coordinator = coordinator
+    init(coordinatorDelegate: TasksListViewCoordinatorDelegate?,
+         persistenceManager: CoreDataManager,
+         authRepo: AuthRepository) {
+        
+        self.coordinatorDelegate = coordinatorDelegate
+        self.persistenceManager = persistenceManager
+        self.authRepo = authRepo
     }
     
     func fetchTasks() {
         Task {
             do {
-                let request = try await AuthManager.shared.login()
+                let request = try await authRepo.login()
                 let tasks = try await NetworkManager.shared.fetchTasks(token: request
                     .token, refreshToken: request.refreshToken)
 
                 DispatchQueue.main.async {
                     self.saveTasksToCoreData(tasks: tasks)
                     self.tasks = tasks
-                    self.presentedTasks = tasks
+                    self.presentedTasks.send(tasks)
                 }
             }
             catch {
                 DispatchQueue.main.async {
                     self.tasks = self.fetchTasksFromCoreData()
-                    self.presentedTasks = self.tasks
+                    self.presentedTasks.send(self.tasks)
                 }
                 print("Error fetching tasks from API: \(error)")
             }
@@ -49,21 +56,22 @@ class TasksListViewModel {
     
     func searchTasks(query: String) {
         if query.isEmpty {
-            presentedTasks = tasks
+            presentedTasks.send(tasks)  // Send all tasks if the query is empty
         } else {
-            presentedTasks = tasks.filter { task in
+            let filteredTasks = tasks.filter { task in
                 task.title?.localizedCaseInsensitiveContains(query) == true ||
                 task.description?.localizedCaseInsensitiveContains(query) == true
             }
+            presentedTasks.send(filteredTasks)  // Send the filtered tasks
         }
     }
     
     private func saveTasksToCoreData(tasks: [TaskModel]) {
-        CoreDataManager.shared.saveTasksToCoreData(tasks: tasks)
+        persistenceManager.saveTasksToCoreData(tasks: tasks)
     }
     
     private func fetchTasksFromCoreData() -> [TaskModel] {
-        return CoreDataManager.shared.fetchTasksFromCoreData()
+        return persistenceManager.fetchTasksFromCoreData()
     }
     
 }

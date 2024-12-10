@@ -8,29 +8,44 @@
 import XCTest
 @testable import Buddyger
 
-final class BuddygerTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+final class TasksListViewModelTests: XCTestCase {
+    
+    var viewModel: TasksListViewModel!
+    var mockPersistenceManager: MockCoreDataManager!
+    
+    override func setUp() {
+        super.setUp()
+        mockPersistenceManager = MockCoreDataManager()
+        viewModel = TasksListViewModel(
+            coordinatorDelegate: nil,
+            persistenceManager: mockPersistenceManager,
+            authRepo: AuthRepository()
+        )
+    }
+    
+    override func tearDown() {
+        viewModel = nil
+        mockPersistenceManager = nil
+        super.tearDown()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    func testFetchTasks_HappyPath() {
+        // Arrange
+        let mockTasks = [
+            TaskModel(task: "Task1", title: "Buy Groceries", description: "Milk, Bread, Eggs", colorCode: ".red"),
+            TaskModel(task: "Task2", title: "Read Book", description: "Read Swift Programming", colorCode: ".blue"),
+            TaskModel(task: "Task3", title: "Workout", description: "Morning Yoga Session", colorCode: ".green")
+        ]
+        
+        viewModel.presentedTasks = mockTasks
+        mockPersistenceManager.saveTasksToCoreData(tasks: mockTasks)
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        // Act
+        viewModel.fetchTasks()
+        viewModel.searchTasks(query: "")
+        
+        XCTAssertEqual(viewModel.presentedTasks.count, 3)
+        XCTAssertEqual(viewModel.presentedTasks.first?.title, "Read")
     }
 
 }

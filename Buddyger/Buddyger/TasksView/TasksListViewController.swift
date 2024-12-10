@@ -10,10 +10,10 @@ import Combine
 
 class TasksListViewController: UIViewController {
 
-    @IBOutlet weak var tasksTableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet private weak var tasksTableView: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar!
     
-    var viewModel: TasksListViewModel?
+    var viewModel: TasksListViewModelProtocol?
     private var refreshControl: UIRefreshControl?
     private var cancellables: [AnyCancellable] = []
     
@@ -43,18 +43,12 @@ class TasksListViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        viewModel?.$presentedTasks
+        viewModel?.presentedTasks
                 .receive(on: DispatchQueue.main)
                 .sink { [weak self] _ in
                     self?.tasksTableView.reloadData()
                 }
                 .store(in: &cancellables)
-        TaskManager.shared.$searchTextPublisher
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] query in
-                self?.viewModel?.searchTasks(query: query)
-            }
-            .store(in: &cancellables)
     }
     
     private func setupRefreshControl() {
@@ -63,7 +57,7 @@ class TasksListViewController: UIViewController {
     }
     
     @objc private func refreshData() {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1) { [weak self] in
+        DispatchQueue.global().async { [weak self] in
             guard let self = self else { return }
 
             DispatchQueue.main.async {
@@ -87,19 +81,19 @@ extension TasksListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.presentedTasks.count ?? 0
+        return viewModel?.presentedTasks.value.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tasksTableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskTableViewCell,
-              let task = viewModel?.presentedTasks[indexPath.row] else {
+              let task = viewModel?.presentedTasks.value[indexPath.row] else {
             return UITableViewCell()
         }
         
-        cell.configure(task: task.task ?? "no task",
-                       title: task.title ?? "no title",
-                       description: task.description ?? "no description",
-                       colorCode: UIColor(hex: task.colorCode ?? ""))
+        cell.configure(with: TaskCellModel(task: task.task ?? "no task",
+                                           title: task.title ?? "no title",
+                                           description: task.description ?? "no description",
+                                           colorCode: UIColor(hex: task.colorCode ?? "")))
         
         return cell
     }

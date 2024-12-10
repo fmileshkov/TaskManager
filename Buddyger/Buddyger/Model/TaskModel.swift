@@ -7,11 +7,9 @@
 
 import Foundation
 
-struct TaskModel : Codable {
-    
+struct TaskModel : Codable, Equatable {
     var task : String?
     var title : String?
     var description : String?
     var colorCode : String?
-
 }

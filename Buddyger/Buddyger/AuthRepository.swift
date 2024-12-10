@@ -7,11 +7,7 @@
 
 import Foundation
     
-class AuthManager {
-    
-    static let shared = AuthManager()
-    
-    private init() {}
+class AuthRepository {
     
     func login() async throws -> LoginResponse {
         guard let url = URL(string: "https://api.baubuddy.de/index.php/login") else {

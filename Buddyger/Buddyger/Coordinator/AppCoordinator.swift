@@ -27,4 +27,10 @@ class AppCoordinator: Coordinator {
         tabBarCoordinator.start()
     }
     
+    func navigateToTaskCoordinatorWithQRQuery(query: String) {
+        guard let tasksListCoordinator = parentCoordinator?.firstChildCoordinatorRecursive(of: TasksListViewCoordinator.self) else { return }
+        
+        tasksListCoordinator.searchWithQRQuery(query: query)
+    }
+    
 }

@@ -43,7 +43,7 @@ enum TabBarPage {
     func pageIcon() -> UIImage {
         switch self {
         case .tasksList:
-            return UIImage(systemName: "house.fill")!
+            return UIImage(systemName: "rectangle.and.pencil.and.ellipsis")!
         case .qrScanner:
             return UIImage(systemName: "qrcode.viewfinder")!
         }

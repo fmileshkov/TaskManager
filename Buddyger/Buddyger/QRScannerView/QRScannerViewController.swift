@@ -7,7 +7,7 @@
 
 import UIKit
 import AVFoundation
-import Combine
+import os
 
 class QRScannerViewController: UIViewController {
     
@@ -16,6 +16,7 @@ class QRScannerViewController: UIViewController {
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     private var qrCodeFrame: UIView = UIView()
     private var isScanning = true
+    private let logger = Logger(subsystem: "oniqotlqvo.Buddyger", category: "Camera")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,8 @@ class QRScannerViewController: UIViewController {
         )
         
         guard let captureDevice = discoverySession.devices.first else {
-            print("No camera device found.")
-            showNoCameraAlert()
+            logger.error("No camera device found.")
+            viewModel?.handleNoCamera()
             return
         }
         
@@ -60,21 +61,10 @@ class QRScannerViewController: UIViewController {
 
             captureSession.startRunning()
         } catch {
-            print("Error setting up QR scanner: \(error.localizedDescription)")
+            logger.error("Error setting up QR scanner: \(error.localizedDescription)")
         }
     }
-    
-    private func showNoCameraAlert() {
-        let alert = UIAlertController(
-            title: "Camera Unavailable",
-            message: "No camera device found. Please check your device and try again.",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-            self.viewModel?.searchWithQRSquery(query: "Lagerarbeiten")
-        })
-        present(alert, animated: true)
-    }
+
 }
 
 // MARK: - Metadata Output Delegate
@@ -87,7 +77,6 @@ extension QRScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
     ) {
         guard isScanning, !metadataObjects.isEmpty else {
             qrCodeFrame.frame = .zero
-            print("No QR code detected.")
             return
         }
         
@@ -102,14 +91,14 @@ extension QRScannerViewController: AVCaptureMetadataOutputObjectsDelegate {
                 qrCodeFrame.frame = barCodeObject.bounds
             }
             
-            viewModel?.searchWithQRSquery(query: qrCodeValue)
-
             let alert = UIAlertController(
                 title: "QR Code Detected",
                 message: qrCodeValue,
                 preferredStyle: .alert
             )
+            
             alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                self.viewModel?.searchWithQRSquery(query: qrCodeValue)
                 self.resumeScanning()
             })
             present(alert, animated: true)

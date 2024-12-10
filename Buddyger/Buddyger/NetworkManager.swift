@@ -10,7 +10,6 @@ import Foundation
 class NetworkManager {
     
     static let shared = NetworkManager()
-    
     private init() {}
     
     func fetchTasks(token: String, refreshToken: String) async throws -> [TaskModel] {

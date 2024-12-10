@@ -11,13 +11,39 @@ import UIKit
 
 class CoreDataManager {
     
-    static let shared = CoreDataManager()
+    // MARK: - Persistent Container
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Buddyger")
+        container.loadPersistentStores { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+        return container
+    }()
     
-    private init() {}
+    // MARK: - Context
+    var viewContext: NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
+    
+    // MARK: - Save Context
+    func saveContext() {
+        if viewContext.hasChanges {
+            do {
+                try viewContext.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+    
+    // MARK: - CRUD Operations
     
     func saveTasksToCoreData(tasks: [TaskModel]) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+        let context = viewContext
+        
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = TaskEntity.fetchRequest()
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {
@@ -25,7 +51,7 @@ class CoreDataManager {
         } catch {
             print("Failed to clear old tasks: \(error.localizedDescription)")
         }
-
+        
         for task in tasks {
             let taskEntity = TaskEntity(context: context)
             taskEntity.task = task.task
@@ -41,9 +67,9 @@ class CoreDataManager {
             print("Failed to save tasks: \(error.localizedDescription)")
         }
     }
-    
+
     func fetchTasksFromCoreData() -> [TaskModel] {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let context = viewContext
         let fetchRequest: NSFetchRequest<TaskEntity> = TaskEntity.fetchRequest()
         
         do {
@@ -62,5 +88,4 @@ class CoreDataManager {
             return []
         }
     }
-    
 }
