@@ -9,7 +9,13 @@ import Foundation
 import CoreData
 import UIKit
 
-class CoreDataManager {
+protocol CoreDataMangerProtocol {
+    
+    func saveTasksToCoreData(tasks: [TaskModel])
+    func fetchTasksFromCoreData() -> [TaskModel]
+}
+
+class CoreDataManager: CoreDataMangerProtocol {
     
     // MARK: - Persistent Container
     lazy var persistentContainer: NSPersistentContainer = {
@@ -88,4 +94,5 @@ class CoreDataManager {
             return []
         }
     }
+    
 }

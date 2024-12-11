@@ -15,18 +15,18 @@ protocol QRScannerViewModelProtocol {
 
 class QRScannerViewModel: QRScannerViewModelProtocol {
     
-    private weak var coordinatorDelegate: QRScannerCoordinatorDelegate?
+    private weak var delegate: QRScannerViewModelDelegate?
     
-    init(coordinatorDelegate: QRScannerCoordinatorDelegate) {
-        self.coordinatorDelegate = coordinatorDelegate
+    init(delegate: QRScannerViewModelDelegate) {
+        self.delegate = delegate
     }
     
     func searchWithQRSquery(query: String) {
-        coordinatorDelegate?.openTaskManagerWithQRQuery(query)
+        delegate?.openTaskManagerWithQRQuery(query)
     }
     
     func handleNoCamera() {
-        coordinatorDelegate?.showNoCameraAlert()
+        delegate?.showNoCameraAlert()
     }
     
 }

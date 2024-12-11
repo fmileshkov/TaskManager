@@ -17,16 +17,19 @@ protocol TasksListViewModelProtocol {
 class TasksListViewModel: TasksListViewModelProtocol {
     
     private var tasks: [TaskModel] = []
-    private weak var coordinatorDelegate: TasksListViewCoordinatorDelegate?
-    private var persistenceManager: CoreDataManager
-    private var authRepo: AuthRepository
+    private weak var delegate: TasksListViewModelDelegate?
+    private var persistenceManager: CoreDataMangerProtocol
+    private var authRepo: AuthRepositoryProtocol
+    private var tasksManagerRepository: TaskManagerRepositoryProtocol
     var presentedTasks = CurrentValueSubject<[TaskModel], Never>([])
     
-    init(coordinatorDelegate: TasksListViewCoordinatorDelegate?,
-         persistenceManager: CoreDataManager,
-         authRepo: AuthRepository) {
+    init(delegate: TasksListViewModelDelegate?,
+         persistenceManager: CoreDataMangerProtocol,
+         authRepo: AuthRepositoryProtocol,
+         tasksManagerRepository: TaskManagerRepositoryProtocol) {
         
-        self.coordinatorDelegate = coordinatorDelegate
+        self.tasksManagerRepository = tasksManagerRepository
+        self.delegate = delegate
         self.persistenceManager = persistenceManager
         self.authRepo = authRepo
     }
@@ -35,7 +38,7 @@ class TasksListViewModel: TasksListViewModelProtocol {
         Task {
             do {
                 let request = try await authRepo.login()
-                let tasks = try await NetworkManager.shared.fetchTasks(token: request
+                let tasks = try await tasksManagerRepository.fetchTasks(token: request
                     .token, refreshToken: request.refreshToken)
 
                 DispatchQueue.main.async {
@@ -56,13 +59,13 @@ class TasksListViewModel: TasksListViewModelProtocol {
     
     func searchTasks(query: String) {
         if query.isEmpty {
-            presentedTasks.send(tasks)  // Send all tasks if the query is empty
+            presentedTasks.send(tasks)
         } else {
             let filteredTasks = tasks.filter { task in
                 task.title?.localizedCaseInsensitiveContains(query) == true ||
                 task.description?.localizedCaseInsensitiveContains(query) == true
             }
-            presentedTasks.send(filteredTasks)  // Send the filtered tasks
+            presentedTasks.send(filteredTasks)
         }
     }
     

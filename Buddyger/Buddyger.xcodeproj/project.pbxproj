@@ -10,7 +10,8 @@
 		0B7B4ADF2D050FFD00865606 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B4ADC2D050FFD00865606 /* TabBarController.swift */; };
 		0B7B4AE02D050FFD00865606 /* TabBarPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B4ADD2D050FFD00865606 /* TabBarPages.swift */; };
 		0B7B4AE22D07A52D00865606 /* TaskCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B4AE12D07A52D00865606 /* TaskCellModel.swift */; };
-		0B7B4AE42D07AD8600865606 /* MockClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7B4AE32D07AD8600865606 /* MockClasses.swift */; };
+		0B9787032D0906F100BF3071 /* TasksListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9787012D0906F100BF3071 /* TasksListViewModelTests.swift */; };
+		0B9787042D0906F100BF3071 /* MockRepos&Managers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9787022D0906F100BF3071 /* MockRepos&Managers.swift */; };
 		0BE62CF22CFA7F7700A863DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE62CF12CFA7F7700A863DA /* AppDelegate.swift */; };
 		0BE62CF42CFA7F7700A863DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE62CF32CFA7F7700A863DA /* SceneDelegate.swift */; };
 		0BE62CF62CFA7F7700A863DA /* TasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE62CF52CFA7F7700A863DA /* TasksListViewController.swift */; };
@@ -18,10 +19,9 @@
 		0BE62CFC2CFA7F7700A863DA /* Buddyger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BE62CFA2CFA7F7700A863DA /* Buddyger.xcdatamodeld */; };
 		0BE62CFE2CFA7F7A00A863DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BE62CFD2CFA7F7A00A863DA /* Assets.xcassets */; };
 		0BE62D012CFA7F7A00A863DA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0BE62D002CFA7F7A00A863DA /* Base */; };
-		0BE62D0C2CFA7F7B00A863DA /* BuddygerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE62D0B2CFA7F7B00A863DA /* BuddygerTests.swift */; };
 		0BF7A34E2CFBD85E0077FA9D /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A34D2CFBD85E0077FA9D /* TaskTableViewCell.swift */; };
 		0BF7A3502CFBDED70077FA9D /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A34F2CFBDED70077FA9D /* AuthRepository.swift */; };
-		0BF7A3522CFCAA640077FA9D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A3512CFCAA640077FA9D /* NetworkManager.swift */; };
+		0BF7A3522CFCAA640077FA9D /* TaskManagerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A3512CFCAA640077FA9D /* TaskManagerRepository.swift */; };
 		0BF7A3542CFD3DE30077FA9D /* TasksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A3532CFD3DE30077FA9D /* TasksListViewModel.swift */; };
 		0BF7A3562CFE11BC0077FA9D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A3552CFE11BC0077FA9D /* UIColor+Hex.swift */; };
 		0BF7A35C2CFE78320077FA9D /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF7A35B2CFE78320077FA9D /* TaskModel.swift */; };
@@ -39,7 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0BE62D082CFA7F7B00A863DA /* PBXContainerItemProxy */ = {
+		0B9786FC2D0906D500BF3071 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0BE62CE62CFA7F7700A863DA /* Project object */;
 			proxyType = 1;
@@ -52,7 +52,9 @@
 		0B7B4ADC2D050FFD00865606 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0B7B4ADD2D050FFD00865606 /* TabBarPages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarPages.swift; sourceTree = "<group>"; };
 		0B7B4AE12D07A52D00865606 /* TaskCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellModel.swift; sourceTree = "<group>"; };
-		0B7B4AE32D07AD8600865606 /* MockClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClasses.swift; sourceTree = "<group>"; };
+		0B9786F82D0906D500BF3071 /* BuddygerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuddygerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B9787012D0906F100BF3071 /* TasksListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksListViewModelTests.swift; sourceTree = "<group>"; };
+		0B9787022D0906F100BF3071 /* MockRepos&Managers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MockRepos&Managers.swift"; sourceTree = "<group>"; };
 		0BE62CEE2CFA7F7700A863DA /* Buddyger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buddyger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BE62CF12CFA7F7700A863DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BE62CF32CFA7F7700A863DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,11 +64,9 @@
 		0BE62CFD2CFA7F7A00A863DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0BE62D002CFA7F7A00A863DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0BE62D022CFA7F7A00A863DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0BE62D072CFA7F7B00A863DA /* BuddygerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuddygerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0BE62D0B2CFA7F7B00A863DA /* BuddygerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuddygerTests.swift; sourceTree = "<group>"; };
 		0BF7A34D2CFBD85E0077FA9D /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		0BF7A34F2CFBDED70077FA9D /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
-		0BF7A3512CFCAA640077FA9D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0BF7A3512CFCAA640077FA9D /* TaskManagerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerRepository.swift; sourceTree = "<group>"; };
 		0BF7A3532CFD3DE30077FA9D /* TasksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewModel.swift; sourceTree = "<group>"; };
 		0BF7A3552CFE11BC0077FA9D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		0BF7A35B2CFE78320077FA9D /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
@@ -84,14 +84,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0BE62CEB2CFA7F7700A863DA /* Frameworks */ = {
+		0B9786F52D0906D500BF3071 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0BE62D042CFA7F7B00A863DA /* Frameworks */ = {
+		0BE62CEB2CFA7F7700A863DA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -111,11 +111,20 @@
 			path = Buddyger/TabBar;
 			sourceTree = SOURCE_ROOT;
 		};
+		0B9786F92D0906D500BF3071 /* BuddygerTests */ = {
+			isa = PBXGroup;
+			children = (
+				0B9787012D0906F100BF3071 /* TasksListViewModelTests.swift */,
+				0B9787022D0906F100BF3071 /* MockRepos&Managers.swift */,
+			);
+			path = BuddygerTests;
+			sourceTree = "<group>";
+		};
 		0BE62CE52CFA7F7700A863DA = {
 			isa = PBXGroup;
 			children = (
 				0BE62CF02CFA7F7700A863DA /* Buddyger */,
-				0BE62D0A2CFA7F7B00A863DA /* BuddygerTests */,
+				0B9786F92D0906D500BF3071 /* BuddygerTests */,
 				0BE62CEF2CFA7F7700A863DA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				0BE62CEE2CFA7F7700A863DA /* Buddyger.app */,
-				0BE62D072CFA7F7B00A863DA /* BuddygerTests.xctest */,
+				0B9786F82D0906D500BF3071 /* BuddygerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,7 +144,7 @@
 				0BE62CF12CFA7F7700A863DA /* AppDelegate.swift */,
 				0BE62CF32CFA7F7700A863DA /* SceneDelegate.swift */,
 				0BF7A3572CFE77F90077FA9D /* Utils */,
-				0BF7A3512CFCAA640077FA9D /* NetworkManager.swift */,
+				0BF7A3512CFCAA640077FA9D /* TaskManagerRepository.swift */,
 				0BF7A3612CFE7F170077FA9D /* CoreDataManger.swift */,
 				0BF7A34F2CFBDED70077FA9D /* AuthRepository.swift */,
 				0BF7A37A2D050F150077FA9D /* Coordinator */,
@@ -150,15 +159,6 @@
 				0BE62CFA2CFA7F7700A863DA /* Buddyger.xcdatamodeld */,
 			);
 			path = Buddyger;
-			sourceTree = "<group>";
-		};
-		0BE62D0A2CFA7F7B00A863DA /* BuddygerTests */ = {
-			isa = PBXGroup;
-			children = (
-				0BE62D0B2CFA7F7B00A863DA /* BuddygerTests.swift */,
-				0B7B4AE32D07AD8600865606 /* MockClasses.swift */,
-			);
-			path = BuddygerTests;
 			sourceTree = "<group>";
 		};
 		0BF7A3572CFE77F90077FA9D /* Utils */ = {
@@ -182,9 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				0BF7A35B2CFE78320077FA9D /* TaskModel.swift */,
+				0B7B4AE12D07A52D00865606 /* TaskCellModel.swift */,
 				0BF7A35D2CFE78660077FA9D /* LoginResponse.swift */,
 				0BF7A35F2CFE78800077FA9D /* APIError.swift */,
-				0B7B4AE12D07A52D00865606 /* TaskCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +223,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0B9786F72D0906D500BF3071 /* BuddygerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B9786FE2D0906D500BF3071 /* Build configuration list for PBXNativeTarget "BuddygerTests" */;
+			buildPhases = (
+				0B9786F42D0906D500BF3071 /* Sources */,
+				0B9786F52D0906D500BF3071 /* Frameworks */,
+				0B9786F62D0906D500BF3071 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B9786FD2D0906D500BF3071 /* PBXTargetDependency */,
+			);
+			name = BuddygerTests;
+			productName = BuddygerTests;
+			productReference = 0B9786F82D0906D500BF3071 /* BuddygerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		0BE62CED2CFA7F7700A863DA /* Buddyger */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BE62D1B2CFA7F7B00A863DA /* Build configuration list for PBXNativeTarget "Buddyger" */;
@@ -240,24 +258,6 @@
 			productReference = 0BE62CEE2CFA7F7700A863DA /* Buddyger.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0BE62D062CFA7F7B00A863DA /* BuddygerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0BE62D1E2CFA7F7B00A863DA /* Build configuration list for PBXNativeTarget "BuddygerTests" */;
-			buildPhases = (
-				0BE62D032CFA7F7B00A863DA /* Sources */,
-				0BE62D042CFA7F7B00A863DA /* Frameworks */,
-				0BE62D052CFA7F7B00A863DA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0BE62D092CFA7F7B00A863DA /* PBXTargetDependency */,
-			);
-			name = BuddygerTests;
-			productName = BuddygerTests;
-			productReference = 0BE62D072CFA7F7B00A863DA /* BuddygerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -268,12 +268,13 @@
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					0B9786F72D0906D500BF3071 = {
+						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
+						TestTargetID = 0BE62CED2CFA7F7700A863DA;
+					};
 					0BE62CED2CFA7F7700A863DA = {
 						CreatedOnToolsVersion = 15.4;
-					};
-					0BE62D062CFA7F7B00A863DA = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 0BE62CED2CFA7F7700A863DA;
 					};
 				};
 			};
@@ -291,12 +292,19 @@
 			projectRoot = "";
 			targets = (
 				0BE62CED2CFA7F7700A863DA /* Buddyger */,
-				0BE62D062CFA7F7B00A863DA /* BuddygerTests */,
+				0B9786F72D0906D500BF3071 /* BuddygerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0B9786F62D0906D500BF3071 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0BE62CEC2CFA7F7700A863DA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,16 +315,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0BE62D052CFA7F7B00A863DA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0B9786F42D0906D500BF3071 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B9787042D0906F100BF3071 /* MockRepos&Managers.swift in Sources */,
+				0B9787032D0906F100BF3071 /* TasksListViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0BE62CEA2CFA7F7700A863DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -334,7 +344,7 @@
 				0BF7A3602CFE78800077FA9D /* APIError.swift in Sources */,
 				0BF7A3642CFFD2150077FA9D /* QRScannerViewController.swift in Sources */,
 				0BF7A34E2CFBD85E0077FA9D /* TaskTableViewCell.swift in Sources */,
-				0BF7A3522CFCAA640077FA9D /* NetworkManager.swift in Sources */,
+				0BF7A3522CFCAA640077FA9D /* TaskManagerRepository.swift in Sources */,
 				0B7B4ADF2D050FFD00865606 /* TabBarController.swift in Sources */,
 				0BE62CF42CFA7F7700A863DA /* SceneDelegate.swift in Sources */,
 				0BE62CFC2CFA7F7700A863DA /* Buddyger.xcdatamodeld in Sources */,
@@ -348,22 +358,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0BE62D032CFA7F7B00A863DA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0B7B4AE42D07AD8600865606 /* MockClasses.swift in Sources */,
-				0BE62D0C2CFA7F7B00A863DA /* BuddygerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0BE62D092CFA7F7B00A863DA /* PBXTargetDependency */ = {
+		0B9786FD2D0906D500BF3071 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0BE62CED2CFA7F7700A863DA /* Buddyger */;
-			targetProxy = 0BE62D082CFA7F7B00A863DA /* PBXContainerItemProxy */;
+			targetProxy = 0B9786FC2D0906D500BF3071 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -387,6 +388,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0B9786FF2D0906D500BF3071 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FY62B5QW5Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = oniqotlqvo.BuddygerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Buddyger.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Buddyger";
+			};
+			name = Debug;
+		};
+		0B9787002D0906D500BF3071 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FY62B5QW5Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = oniqotlqvo.BuddygerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Buddyger.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Buddyger";
+			};
+			name = Release;
+		};
 		0BE62D192CFA7F7B00A863DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -562,49 +604,18 @@
 			};
 			name = Release;
 		};
-		0BE62D1F2CFA7F7B00A863DA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FY62B5QW5Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = oniqotlqvo.BuddygerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Buddyger.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Buddyger";
-			};
-			name = Debug;
-		};
-		0BE62D202CFA7F7B00A863DA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = FY62B5QW5Y;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = oniqotlqvo.BuddygerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Buddyger.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Buddyger";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0B9786FE2D0906D500BF3071 /* Build configuration list for PBXNativeTarget "BuddygerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B9786FF2D0906D500BF3071 /* Debug */,
+				0B9787002D0906D500BF3071 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0BE62CE92CFA7F7700A863DA /* Build configuration list for PBXProject "Buddyger" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -619,15 +630,6 @@
 			buildConfigurations = (
 				0BE62D1C2CFA7F7B00A863DA /* Debug */,
 				0BE62D1D2CFA7F7B00A863DA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0BE62D1E2CFA7F7B00A863DA /* Build configuration list for PBXNativeTarget "BuddygerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0BE62D1F2CFA7F7B00A863DA /* Debug */,
-				0BE62D202CFA7F7B00A863DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

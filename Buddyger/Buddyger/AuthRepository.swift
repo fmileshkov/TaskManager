@@ -6,8 +6,14 @@
 //
 
 import Foundation
+
+protocol AuthRepositoryProtocol: AnyObject {
     
-class AuthRepository {
+    func login() async throws -> LoginResponse
+    
+}
+    
+class AuthRepository: AuthRepositoryProtocol {
     
     func login() async throws -> LoginResponse {
         guard let url = URL(string: "https://api.baubuddy.de/index.php/login") else {

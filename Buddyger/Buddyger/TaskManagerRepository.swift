@@ -7,10 +7,12 @@
 
 import Foundation
 
-class NetworkManager {
+protocol TaskManagerRepositoryProtocol: AnyObject {
     
-    static let shared = NetworkManager()
-    private init() {}
+    func fetchTasks(token: String, refreshToken: String) async throws -> [TaskModel]
+}
+
+class TaskManagerRepository: TaskManagerRepositoryProtocol {
     
     func fetchTasks(token: String, refreshToken: String) async throws -> [TaskModel] {
         

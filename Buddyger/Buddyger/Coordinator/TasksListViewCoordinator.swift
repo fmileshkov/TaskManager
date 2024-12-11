@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol TasksListViewCoordinatorDelegate: AnyObject {
+protocol TasksListViewModelDelegate: AnyObject {
     func searchWithQRQuery(query: String)
 }
 
-class TasksListViewCoordinator: Coordinator, TasksListViewCoordinatorDelegate {
+class TasksListViewCoordinator: Coordinator, TasksListViewModelDelegate {
     
     private var navController: UINavigationController
     private weak var tasksVC: TasksListViewController?
@@ -27,9 +27,10 @@ class TasksListViewCoordinator: Coordinator, TasksListViewCoordinatorDelegate {
     func startViewFlow() {
         guard let tasksVC = TasksListViewController.initFromStoryBoard() else { return }
         
-        tasksVC.viewModel = TasksListViewModel(coordinatorDelegate: self,
+        tasksVC.viewModel = TasksListViewModel(delegate: self,
                                                persistenceManager: CoreDataManager(),
-                                               authRepo: AuthRepository())
+                                               authRepo: AuthRepository(), 
+                                               tasksManagerRepository: TaskManagerRepository())
         navController.pushViewController(tasksVC, animated: true)
 
         self.tasksVC = tasksVC

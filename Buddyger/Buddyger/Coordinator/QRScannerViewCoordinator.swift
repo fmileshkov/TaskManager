@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol QRScannerCoordinatorDelegate: AnyObject {
+protocol QRScannerViewModelDelegate: AnyObject {
     func openTaskManagerWithQRQuery(_ query: String)
     func showNoCameraAlert()
 }
 
-class QRScannerViewCoordinator: Coordinator, QRScannerCoordinatorDelegate {
+class QRScannerViewCoordinator: Coordinator, QRScannerViewModelDelegate {
     
     private var navController: UINavigationController
     
@@ -23,7 +23,7 @@ class QRScannerViewCoordinator: Coordinator, QRScannerCoordinatorDelegate {
     override func start() {
         guard let qrScannerVC = QRScannerViewController.initFromStoryBoard() else { return }
         
-        qrScannerVC.viewModel = QRScannerViewModel(coordinatorDelegate: self)
+        qrScannerVC.viewModel = QRScannerViewModel(delegate: self)
         navController.pushViewController(qrScannerVC, animated: true)
     }
 
