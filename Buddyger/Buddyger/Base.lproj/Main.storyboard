@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="hTd-wc-JTg">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="K6p-Ex-sKt" customClass="TabBarController" customModule="Buddyger" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vv9-Q5-zzq">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ea4-cZ-nEc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-569" y="-687"/>
+        </scene>
+        <!--TasksListViewController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="TasksListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="TasksListViewController" customClass="TasksListViewController" customModule="Buddyger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0i-c9-bri" userLabel="ContentView">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="s65-3s-VF6" userLabel="TaskTableView">
+                                        <rect key="frame" x="0.0" y="56" width="393" height="703"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                    <searchBar contentMode="redraw" placeholder="Search for task" translatesAutoresizingMaskIntoConstraints="NO" id="sPF-un-dbu">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="HCo-2e-e2s"/>
+                                        </connections>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="s65-3s-VF6" secondAttribute="trailing" id="1aN-tW-qNS"/>
+                                    <constraint firstItem="s65-3s-VF6" firstAttribute="top" secondItem="sPF-un-dbu" secondAttribute="bottom" id="1v5-XF-yLW"/>
+                                    <constraint firstItem="s65-3s-VF6" firstAttribute="top" secondItem="sPF-un-dbu" secondAttribute="bottom" id="OKk-0M-W21"/>
+                                    <constraint firstAttribute="bottom" secondItem="s65-3s-VF6" secondAttribute="bottom" id="S45-zx-LnP"/>
+                                    <constraint firstAttribute="trailing" secondItem="sPF-un-dbu" secondAttribute="trailing" id="bCN-39-QUy"/>
+                                    <constraint firstItem="sPF-un-dbu" firstAttribute="top" secondItem="U0i-c9-bri" secondAttribute="top" id="v9O-9l-f7y"/>
+                                    <constraint firstItem="s65-3s-VF6" firstAttribute="leading" secondItem="U0i-c9-bri" secondAttribute="leading" id="wuT-BJ-reE"/>
+                                    <constraint firstItem="sPF-un-dbu" firstAttribute="leading" secondItem="U0i-c9-bri" secondAttribute="leading" id="x1V-zK-qac"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="U0i-c9-bri" secondAttribute="bottom" id="3xG-dm-zDY"/>
+                            <constraint firstItem="U0i-c9-bri" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="C9G-D5-Jdw"/>
+                            <constraint firstItem="U0i-c9-bri" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EeI-f7-hxj"/>
+                            <constraint firstItem="U0i-c9-bri" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="K2i-Mk-4zj"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tasks" id="TT3-f1-cx2"/>
+                    <connections>
+                        <outlet property="searchBar" destination="sPF-un-dbu" id="dEo-GD-mC0"/>
+                        <outlet property="tasksTableView" destination="s65-3s-VF6" id="7ST-GC-hCT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="421" y="-687"/>
+        </scene>
+        <!--QRScanner-->
+        <scene sceneID="tMS-KT-dZ0">
+            <objects>
+                <viewController storyboardIdentifier="QRScannerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OTK-OJ-Lqr" customClass="QRScannerViewController" customModule="Buddyger" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zt5-b0-Slw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="us4-rV-wYH"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="QRScanner" id="AaZ-i0-JVc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4zi-gI-nlL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1201" y="-687"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
